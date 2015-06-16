@@ -1,0 +1,2 @@
+# ecommerceWebsite
+E-Commerce Website – Java Web-based application designed using the MVC pattern implemented using the servlet/JSP API. Apache Tomcat served as both the web server and the servlet/JSP engine. The presentation layer consisted of JSPs and the business layer consisted of servlets and JavaBeans. Inventory items were controlled by a relational DBMS (MySQL) connected by the JDBC API. Basic authentication security constraint for administration login.
