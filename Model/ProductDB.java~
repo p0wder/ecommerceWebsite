@@ -1,0 +1,178 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package Model;
+
+
+import javax.persistence.EntityManager;
+
+
+
+/**
+ *
+ * @author p0wder
+ */
+public class ProductDB {
+    private String productCode;
+    private String productName;
+    private String catalogCategory;
+    private String description;
+    private double price;
+    private String imageUrl;
+    
+    public ProductDB(){   
+    }
+    public ProductDB(String productCode, String productName, String catalogCategory, String description, double price, String imageUrl)
+    {
+        this.productCode = productCode;
+        this.productName = productName;
+        this.catalogCategory = catalogCategory;
+        this.price = price;
+        this.description = description;
+        this.imageUrl = imageUrl;
+    }
+    /**
+     * set/get methods for DB object
+     */
+    
+    public String getProductCode(){
+        return productCode;
+    }
+    
+    public void setProductCode(String productCode){
+        this.productCode = productCode;
+    }
+    
+    public String getProductName(){
+        return productName;
+    }
+    public void setProductName(String productName){
+        this.productName = productName;
+    }
+    
+    public String getCatalogCatagory(){
+        return catalogCategory;
+    }
+    public void setCatalogCatagory(String catalogCategory){
+        this.catalogCategory = catalogCategory;
+    }
+    
+    public String getDescription(){
+        return description;
+    }
+    public void setDescription(String description){
+        this.description = description;
+    }
+    
+    public double getPrice(){
+        return price;
+    }
+    public void setPrice(double price){
+        this.price = price;
+    }
+    public String getImageUrl(){
+        return imageUrl;
+    }
+    public void setImageUrl(String imageUrl){
+        this.imageUrl = imageUrl;
+    }
+    /**
+     * trying to draw from the mysql database
+     * @param productCode
+     * @return 
+     */
+public ProductDB getProduct(String productCode)
+{
+    EntityManager em = DBUtil.getEmFactory().createEntityManager();
+    try {
+        ProductDB p = new ProductDB();
+        p = em.find(ProductDB.class,productCode);
+        return p;
+    }finally{
+        em.close();
+    }
+}
+    
+    
+    
+    
+    
+    
+    /*
+        I created this so I could handle the data a little easier
+        All product arrays follow this scheme.  
+        Indices 0-4: productName, catalogCategory, 
+                     description, price, imageURL
+        Note: productCode will map to these arrays
+              via HashMap
+    
+    String[] aList = {
+        "Cold Air Intake",
+        "Performance",
+        "New intake for sucking in cold air. More power!",
+        "189.99",
+        "<img id=\"itemPic\" src=\"cai.jpg\" alt=\"caiItemPic\">"};
+    
+    String[] bList = {
+        "Performance Headers",
+        "Performance",
+        "New headers for increased flow. Powerrrrr",
+        "489.99",
+        "<img id=\"itemPic\" src=\"headers.jpg\" alt=\"headerItemPic\">"
+    };
+    
+    String[] cList = {
+        "Catback Exhaust System",
+        "Performance",
+        "New exhaust system starting at the cat and ending at the tailpipe.",
+        "549.99",
+        "<img id=\"itemPic\" src=\"cat.jpg\" alt=\"catItemPic\">"
+    };
+    
+    String[] dList = {
+        "OEM Rear Spoiler",
+        "Appearance",
+        "A new OEM rear spoiler that matches the spoiler released from the factory.",
+        "149.99",
+        "<img id=\"itemPic\" src=\"spoiler.jpg\" alt=\"spoilerItemPic\">"
+    };
+    
+    String[] eList = {
+        "Black Aftermarket Headlights",
+        "Appearance",
+        "New headlights to give a more aggressive look.",
+        "229.99",
+        "<img id=\"itemPic\" src=\"headlights.jpg\" alt=\"headlightsItemPic\">"
+    };
+    
+    String[] fList = {
+        "Aftermarket Wheels",
+        "Appearance",
+        "New headlights to give a more aggressive look.",
+        "229.99",
+        "<img id=\"itemPic\" src=\"wheels.jpg\" alt=\"wheelsItemPic\">"
+    };
+    
+    
+        HashMap calls on all item info by taking the productCode
+        and mapping it to an Array that contains all information on
+        that product
+    
+    HashMap<String, String[] > db = new HashMap<String, String[]>(){{
+        put("cai89", aList);
+        put("hfh64", bList);
+        put("cat43", cList);
+        put("spo78", dList);        
+        put("awh22", eList);
+        put("hdl13",fList);
+    }};
+    
+    public String[] getInfo(String key)
+    {
+        return db.get(key);
+    }
+    */
+}

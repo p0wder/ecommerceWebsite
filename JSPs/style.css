@@ -1,0 +1,480 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+
+/*
+***********************style section for wrapper******************************
+*/
+
+#wrapper{
+    width: 1250px;
+    height: auto;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #848790;
+    border-style: solid;
+    border-width: thin;
+    border-color: black;
+    padding: 10px;
+}
+
+/*
+*************************style section for homepage****************************
+**************and main layout to be used throught the other pages**************
+*/
+
+/*
+----------------style section for top 'header' section
+*/
+
+/*this section styles the main header div located at the very top of the
+page.  this will remain consistant throughout the site*/
+#header{
+    width: auto;
+    height: auto;
+    color: #F9932E;
+    background-color: #252934;
+    border-style: solid;
+    border-width: medium;
+    border-color: dimgray;
+}
+
+#logo{
+    font-size: 400%;
+    text-align: center;
+    padding-top: 10px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+#headerUser{
+    color: aliceblue;
+    text-align: right;
+    font-size: small;
+    text-decoration: underline;
+    padding-right: 10px;
+    padding-top: 7px;
+}
+
+#staticHome{
+    color: yellowgreen;
+    text-align: right;
+    font-size: 80%;
+    padding-right: 30px;
+    padding-bottom: 8px;
+}
+
+/*
+--------------------style section for top nav bar
+*/
+
+/*This section styles the top navigation bar that will be consistantly
+shown on all pages*/
+#navBar{
+    background-color: #252934;
+    width: auto;
+    height: 40px;
+    margin-top: 4px;
+    border-style: solid;
+    border-width: medium;
+    border-color: dimgray;
+}
+.navBarLinks{
+    height: 40px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+td{
+    padding-left: 25px;
+    padding-right: 25px;
+}
+#bar2{
+    border-right-style: solid;
+    border-right-width: thin;
+    border-right-color: greenyellow;
+    border-left-style: solid;
+    border-left-width: thin;
+    border-left-color: greenyellow;
+}
+.navBarSignIn{
+    color: #F9932E;
+    text-decoration: none;
+}
+.navBarSignIn:hover{
+    color: greenyellow;
+    text-decoration: underline;
+}
+.navBarCart{
+    color: #F9932E;
+    text-decoration: none;
+}
+.navBarCart:hover{
+    color: greenyellow;
+    text-decoration: underline;
+}
+.navBarOrders{
+    color: #F9932E;
+    text-decoration: none;
+}
+.navBarOrders:hover{
+    color: greenyellow;
+    text-decoration: underline;
+}
+
+/*
+-------------------style section for side nav section
+*/
+
+/*sets up the entire mid section to be used in conjuction with the
+side navigation section that will remain constant.  Uses inline-block
+to allow for easier floating of divs for side-by-side displaying and 
+alignment*/
+#midSection{
+    display: inline-block;
+}
+
+/*this styles the various aspects of the side navigation to be used 
+throughout the site*/
+#sideNav{
+    background-color: #252934;
+    color: greenyellow;
+    width: 320px;
+    height: 500px;
+    margin-top: 15px;
+    border-style: solid;
+    border-width: medium;
+    border-color: dimgray;
+    padding-top: 50px;
+    float:left;
+}
+#sideLinks{
+    text-align: center;
+}
+.sideHome{
+    color: #F9932E;
+    text-decoration: none;
+    font-size: 275%;
+}
+.sideHome:hover{
+    color: greenyellow;
+}
+.sideCatalog{
+    color: #F9932E;
+    text-decoration: none;
+    font-size: 275%;
+}
+.sideCatalog:hover{
+    color: greenyellow;
+}
+.sideAbout{
+    color: #F9932E;
+    text-decoration: none;
+    font-size: 275%;
+}
+.sideAbout:hover{
+    color: greenyellow;
+}
+.sideContact{
+    color: #F9932E;
+    text-decoration: none;
+    font-size: 275%;
+}
+.sideContact:hover{
+    color: greenyellow;
+}
+
+/*
+---------------------style section for homepage main info section
+*/
+
+/*styles the wrapper used for the information on the homepage*/
+#homeInfo{
+    background-color: #ffffff;
+    color: #252934;
+    font-size: 130%;
+    font-weight: bold;
+    width: 825px;
+    height: auto;
+    margin-top: 10px;
+    margin-left: 27px;
+    padding: 25px;
+    border-style: solid;
+    border-width: medium;
+    border-color: #252934;
+    float: left;
+}
+
+/*styles the main car picture used on the homepage*/
+#homepageCarPic{
+    float: left;
+    margin-top: 15px;
+    margin-left: 138px;
+    border-style: solid;
+    border-width: thin;
+    border-color: #252934;
+}
+
+/*
+----------------style section for bottom bar section
+*/
+
+/*this styles the bottom bar or section to be used on all pages*/
+#bottomSec{
+    background-color: #252934;
+    color: #F9932E;
+    padding-top: 20px;
+    padding-left: 20px;
+    width: auto;
+    height: 40px;
+    margin-top: 15px;
+    border-style: solid;
+    border-width: medium;
+    border-color: dimgray;
+}
+/*
+***********************style section for catalog page***************************
+*/
+
+/*styling for the catalog wrapper everything will be contained in for the
+catalog page*/
+#catalogWrapper{
+    background-color: gainsboro;
+    color: #252934;
+    font-size: 140%;
+    width: 808px;
+    height: 500px;
+    margin-top: 28px;
+    margin-left: 27px;
+    padding-top: 25px;
+    padding-left: 70px;
+    border-style: solid;
+    border-width: medium;
+    border-color: #252934;
+    float: left;
+}
+
+/*general styling for 'dt' and 'dd' tags*/
+dt{
+    font-weight: bold;
+}
+dd{
+    text-decoration: underline;
+}
+
+/*class to style all the item names that link to the next page*/
+.itemPageLink{
+    color: #252934;
+}
+.itemPageLink:hover{
+    font-weight: bold;
+}
+.itemPageLink:active{
+    color: yellowgreen;
+    font-weight: bold;
+}
+
+/*
+*************************style section for item page***************************
+*/
+
+/*styles the item page wrapper that all of the info will be in for 
+the item page*/
+#itemWrapper{
+    background-color: gainsboro;
+    color: #252934;
+    font-size: 140%;
+    width: 808px;
+    height: auto;
+    margin-top: 28px;
+    margin-left: 27px;
+    padding-top: 25px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-style: solid;
+    border-width: medium;
+    border-color: #252934;
+    float: left;
+}
+
+
+/*styles the picture used for the current item being shown*/
+#itemPic{
+    width:75%; /* you can use % */
+    height: auto;
+    
+    float: left;
+}
+
+/*styling for the name of the item for alignment*/
+#itemName{
+    float: left;
+    //margin-left: 10px;
+    font-size: 100%;
+}
+
+/*styling to make the item name bold*/
+#itemNameBold{
+   font-weight: bold;
+}
+
+/*styles the button used on the item page*/
+#cartButton{
+   float:left;
+   margin-left: 30px;
+}
+
+/*
+*************************style section for cart page***************************
+*/
+
+/*styling for the wrapper containing the cart page info*/
+#cartWrapper{
+    background-color: gainsboro;
+    color: #252934;
+    width: 808px;
+    height: 500px;
+    margin-top: 28px;
+    margin-left: 27px;
+    padding-top: 25px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-style: solid;
+    border-width: medium;
+    border-color: #252934;
+    float: left;
+}
+
+/*styles the tittle 'Your Cart' seen at the top*/
+#cartTittle{
+    font-weight: bold;
+    
+    font-size: 200%;
+}
+
+/*styles the information for quantities shown beside cart tittle*/
+#cartInstruct{
+    float: right;
+    margin-left: 50px;
+    font-size: 135%;
+}
+
+/*
+----------------------------style section for cart table
+*/
+
+/*styling of the table used to organize the shopping cart page*/
+#cartTable{
+    margin-top: 50px;
+    border-bottom-style: solid;
+    border-bottom-color: #252934;
+    width: 810px;
+}
+
+/*class for the general table data (td) throughout the table*/
+.cartTD{
+    padding: 15px;
+}
+
+/*class for styling the 'price' column for alignment*/
+.cartTDP{
+    padding: 15px;
+    text-align: center;
+}
+
+/*class for styling the 'quantity' column for alignment*/
+.cartTDQ{
+    padding: 15px;
+    text-align: center;
+}
+
+/*class for styling the 'total' column for alignment*/
+.cartTDT{
+    padding: 15px;
+    text-align: right;
+}
+
+/*styling to align the 'Item' header*/
+#item{
+    text-align: left;
+    padding: 15px;
+}
+
+/*styling to align the 'Price' header*/
+#price{
+    text-align: left;
+    padding: 15px;
+}
+
+/*styling to align the 'Quantity' header*/
+#quantity{
+    text-align: left;
+    padding: 15px;
+}
+
+/*styling to align the 'Total' header*/
+#total{
+    text-align: left;
+    padding: 15px;
+}
+
+/*styling to underline the 1st item shown under the 'Item' column*/
+#cartItemUnderline1{
+    padding: 15px;
+    text-decoration: underline;
+}
+
+/*styling to underline the 2nd item shown under the 'Item' column*/
+#cartItemUnderline2{
+    padding: 15px;
+    text-decoration: underline;
+}
+
+/*moves update button to line up on the right*/
+#cartUpdate{
+    margin-left: 700px;
+}
+
+/*moves the checkout button to line up on the right under update button*/
+#cartCheckout{
+    margin-left: 700px;
+}
+
+/*general styling for all input tags used for buttons using 'forms'*/
+input{
+    border-color: #F9932E;
+    background-color: #ffffff;
+    color: #252934;
+    font-weight: bold;
+    width: auto;
+    text-align: center;
+}
+
+/*special input class for the quantity input the user enters
+needs to be different from the general input tag style*/
+.quantInput{
+    width: 45px;
+    height: 20px;
+}
+
+/*for the subtotal to make bold*/
+.cartFinalInfo1{
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/*for the total price to make bold*/
+.cartFinalInfo2{
+    padding: 15px;
+    text-align: right;
+    font-weight: bold;
+}
+
+/* 
+    Created on : Aug 27, 2014, 3:15:40 PM
+    Author     : bumpm_000
+*/
+

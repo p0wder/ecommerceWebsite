@@ -1,0 +1,158 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+//package Business;
+
+import Model.ProductDB;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ *
+ * @author Scott C Gramig
+ */
+public class CatalogController extends HttpServlet {
+
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     * @throws java.sql.SQLException
+     */
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, SQLException {
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            String url = "/item.jsp";
+            String pCode = request.getParameter("name");
+            String query = "SELECT * FROM PRODUCT WHERE productCode='" + pCode + "'";
+            
+            /**
+             * Creates a connection to the database
+             */
+            try{
+                Class.forName("com.mysql.jdbc.Driver");
+            } catch (Exception ex) {
+                out.println("you fucked up.  no connection");
+            }
+            
+            Connection conn = null;
+             try {
+                 conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/productdb", "newuser", "password");
+             } catch(SQLException ex) {
+                 out.println("SQLException: " + ex.getMessage());
+                 out.println("SQLState: " + ex.getSQLState());
+             }
+            
+            Statement stmt = null;
+            ResultSet rs = null;
+            
+            try {
+                stmt = conn.createStatement();
+                rs = stmt.executeQuery(query);
+                
+                if(stmt.execute(query))
+                    rs = stmt.getResultSet();
+            } catch (SQLException ex) {
+                out.println("SQLException: " + ex.getMessage());
+            }
+            
+            /**
+             * Creates object and stores info from the database depending on the pCode
+             */
+            ProductDB itemInfo = new ProductDB();
+            
+            while(rs.next())
+            {
+                itemInfo.setProductCode(rs.getString(1));
+                itemInfo.setProductName(rs.getString(2));
+                itemInfo.setCatalogCatagory(rs.getString(3));
+                itemInfo.setDescription(rs.getString(4));
+                itemInfo.setPrice(rs.getDouble(5));
+                itemInfo.setImageUrl(rs.getString(6));
+            }
+
+            /**
+             * set attributes for the page view
+             */
+            request.setAttribute("pCode", itemInfo.getProductCode());
+            request.setAttribute("imageURL", itemInfo.getImageUrl());
+            request.setAttribute("productName", itemInfo.getProductName());
+            request.setAttribute("catalogCatagory", itemInfo.getCatalogCatagory());
+            request.setAttribute("price", itemInfo.getPrice());
+            request.setAttribute("description", itemInfo.getDescription());
+
+           
+            getServletContext()
+                    .getRequestDispatcher(url)
+                    .forward(request, response);
+            
+        }
+    }
+
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(CatalogController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(CatalogController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
+
+}
